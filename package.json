@@ -1,0 +1,19 @@
+{
+  "name": "rollup-plugin-import-to-url",
+  "version": "1.0.0",
+  "description": "rollup-plugin-import-to-url",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhoukekestar/rollup-plugin-import-to-url.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhoukekestar/rollup-plugin-import-to-url/issues"
+  },
+  "homepage": "https://github.com/zhoukekestar/rollup-plugin-import-to-url#readme"
+}
