@@ -15,7 +15,7 @@ function simplifyVersion(version) {
   return version;
 }
 
-function importToUrl({ domains = 'jspm.dev' } = {}) {
+function importToUrl({ domain = 'jspm.dev' } = {}) {
   return {
     name: 'rollup-plugin-import-to-url',
     resolveId(importee) {
@@ -37,4 +37,4 @@ function importToUrl({ domains = 'jspm.dev' } = {}) {
   };
 }
 
-export default importToUrl;
+module.exports = importToUrl;
