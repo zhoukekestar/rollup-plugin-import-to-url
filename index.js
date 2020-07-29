@@ -9,7 +9,7 @@ function getImportVersion(name) {
 
 function simplifyVersion(version) {
   if (/^\^/.test(version)) {
-    return version.match(/^\^(\d)+/)[1]
+    return version.match(/^\^(\d+)/)[1]
   }
 
   return version;
