@@ -1,9 +1,26 @@
 'use strict';
+const path = require('path');
 
 const notBare = str =>
   str.startsWith('/') || str.startsWith('./') || str.startsWith('../');
 
 function getImportVersion(name) {
+  const pkg = require(
+    path.resolve(__dirname, process.env.PWD, './package.json')
+  );
+
+  if (pkg && pkg.dependencies && pkg.dependencies[name]) {
+    return pkg.dependencies[name];
+  }
+
+  if (pkg && pkg.peerDependencies && pkg.peerDependencies[name]) {
+    return pkg.peerDependencies[name];
+  }
+
+  if (pkg && pkg.devDependencies && pkg.devDependencies[name]) {
+    return pkg.devDependencies[name];
+  }
+
   return process.env[`npm_package_dependencies_${name.replace(/-/g, '_')}`];
 }
 
