@@ -1,13 +1,15 @@
 'use strict';
 const path = require('path');
 
-const notBare = str =>
+const notBare = (str) =>
   str.startsWith('/') || str.startsWith('./') || str.startsWith('../');
 
 function getImportVersion(name) {
-  const pkg = require(
-    path.resolve(__dirname, process.env.PWD, './package.json')
-  );
+  const pkg = require(path.resolve(
+    __dirname,
+    process.env.PWD,
+    './package.json'
+  ));
 
   if (pkg && pkg.dependencies && pkg.dependencies[name]) {
     return pkg.dependencies[name];
@@ -26,7 +28,7 @@ function getImportVersion(name) {
 
 function simplifyVersion(version) {
   if (/^\^/.test(version)) {
-    return version.match(/^\^(\d+)/)[1]
+    return version.match(/^\^(\d+)/)[1];
   }
 
   return version;
@@ -36,15 +38,11 @@ function importToUrl({ domain = 'jspm.dev' } = {}) {
   return {
     name: 'rollup-plugin-import-to-url',
     resolveId(importee) {
-      if (!notBare(importee)) {
+      if (!/^http/.test(importee) && !notBare(importee)) {
         return {
-          id: `https://${
-            domain
-          }/${
-            importee
-          }@${
-            simplifyVersion(getImportVersion(importee))
-          }`,
+          id: `https://${domain}/${importee}@${simplifyVersion(
+            getImportVersion(importee)
+          )}`,
           external: true,
         };
       }
