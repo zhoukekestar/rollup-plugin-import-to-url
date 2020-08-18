@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zhoukekestar/rollup-plugin-import-to-url/issues"
   },
-  "homepage": "https://github.com/zhoukekestar/rollup-plugin-import-to-url#readme"
+  "homepage": "https://github.com/zhoukekestar/rollup-plugin-import-to-url#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }
