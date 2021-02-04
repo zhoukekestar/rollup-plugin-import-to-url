@@ -12,7 +12,7 @@ async function getImportVersion(name, npmregistry) {
   // Get version by current project's package.json
   const pkg = require(path.resolve(
     __dirname,
-    process.env.PWD,
+    process.env.PKG_PWD || process.env.PWD,
     './package.json'
   ));
 
