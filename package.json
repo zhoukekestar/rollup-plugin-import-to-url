@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-import-to-url",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "rollup-plugin-import-to-url",
   "main": "index.js",
   "scripts": {
