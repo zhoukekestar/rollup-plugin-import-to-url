@@ -75,13 +75,17 @@ function importToUrl({
       if (/^http(s?):\/\//i.test(importee)) return null;
 
       if (!notBare(importee)) {
-        const version = await getImportVersion(importee, npmregistry);
-        return {
-          id: `https://${domain}/${importee}@${simplifyVersion(
-            dependencies[importee] || version
-          )}`,
-          external: true,
-        };
+        try {
+          const version = await getImportVersion(importee, npmregistry);
+          return {
+            id: `https://${domain}/${importee}@${simplifyVersion(
+              dependencies[importee] || version
+            )}`,
+            external: true,
+          };
+        } catch (err) {
+          console.error(`[ERROR] resolve ${importee} error`);
+        }
       }
 
       return null;
