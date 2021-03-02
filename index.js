@@ -84,7 +84,7 @@ function importToUrl({
             external: true,
           };
         } catch (err) {
-          console.error(`[ERROR] resolve ${importee} error`);
+          throw new Error(`can't resolve ${importee}`);
         }
       }
 
